@@ -1,5 +1,7 @@
 export default function Asset() {
   return (
-    <div>Assets</div>
-  )
+    <div>
+      <div>Assets</div>
+    </div>
+  );
 }
