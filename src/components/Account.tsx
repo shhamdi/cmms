@@ -32,7 +32,7 @@ import {
 
 const Account = () => {
   return (
-    <div className="mr-7">
+    <div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar className="cursor-pointer">

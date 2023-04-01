@@ -35,7 +35,7 @@ const SideNavbar = () => {
   ];
 
   return (
-    <div className="flex flex-col p-4 border-r border-solid h-screen w-80">
+    <div className="fixed left-0 h-full top-[3.5rem] flex flex-col p-4 border-r border-solid w-80 bg-slate-50">
       {navLinks.map((link, index) => (
         <NavLink {...link} key={index} />
       ))}
