@@ -7,11 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col">
+    <div>
       <Header />
       <div className="flex">
         <SideNavbar />
-        <div>{children}</div>
+        <div className="absolute top-[3.5rem] left-[18rem] ml-[1rem] mt-[1rem]">{children}</div>
       </div>
     </div>
   );

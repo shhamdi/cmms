@@ -1,44 +1,27 @@
 import NavLink from "./NavLink";
+import { Briefcase, Construction, Map, Factory, Boxes } from "lucide-react";
 
 const SideNavbar = () => {
-  const navLinks = [
-    {
-      name: "Work Orders",
-      route_segment: "work-orders",
-      icon: "fileTrayFullOutline",
-      notif: 0,
-    },
-    {
-      name: "Preventive Maintenance",
-      route_segment: "preventive-maintenance",
-      icon: "shieldCheckmarkOutline",
-      notif: 1,
-    },
-    {
-      name: "Locations",
-      route_segment: "locations",
-      icon: "locationOutline",
-      notif: 0,
-    },
-    {
-      name: "Assets",
-      route_segment: "asset",
-      icon: "constructOutline",
-      notif: 23,
-    },
-    {
-      name: "Inventory",
-      route_segment: "inventory",
-      icon: "extensionPuzzleOutline",
-      notif: 8,
-    },
-  ];
-
   return (
-    <div className="fixed left-0 h-full top-[3.5rem] flex flex-col p-4 border-r border-solid w-80 bg-slate-50">
-      {navLinks.map((link, index) => (
-        <NavLink {...link} key={index} />
-      ))}
+    <div className="fixed left-0 h-full top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-50 text-slate-800 shadow-md">
+      <NavLink name="Work Orders" route_segment="work-orders">
+        <Briefcase size={18} />
+      </NavLink>
+      <NavLink
+        name="Preventive Maintenance"
+        route_segment="preventive-maintenance"
+      >
+        <Construction size={18} />
+      </NavLink>
+      <NavLink name="Locations" route_segment="locations">
+        <Map size={18} />
+      </NavLink>
+      <NavLink name="Assets" route_segment="asset">
+        <Factory size={18} />
+      </NavLink>
+      <NavLink name="Inventory" route_segment="inventory">
+        <Boxes size={18} />
+      </NavLink>
     </div>
   );
 };
