@@ -65,336 +65,391 @@ const Forms = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="form">
-      <h1>Asset Information</h1>
-      <Form.Group>
-        <Form.Label for="name">Name</Form.Label>
-        <Form.Control
-          type="text"
-          id="name"
-          onChange={handleChange}
-          value={formData.name}
-          name="name"
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label for="description">Description</Form.Label>
-        <Form.Control
-          type="text"
-          id="description"
-          onChange={handleChange}
-          value={formData.description}
-          name="description"
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label for="model">Model</Form.Label>
-        <Form.Control
-          type="text"
-          id="model"
-          onChange={handleChange}
-          value={formData.model}
-          name="model"
-        />
-      </Form.Group>
-      <Row>
-        <Col>
-          <Form.Group>
-            <Form.Label for="category">Category</Form.Label>
-            <Form.Control
-              type="text"
-              id="category"
-              onChange={handleChange}
-              value={formData.category}
-              name="category"
-            />
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group>
-            <Form.Label for="area">Area</Form.Label>
-            <Form.Control
-              type="text"
-              id="area"
-              onChange={handleChange}
-              value={formData.area}
-              name="area"
-            />
-          </Form.Group>
-        </Col>
-      </Row>
-
-      <Form.Group>
-        <Form.Check
-          type="radio"
-          value="Enter custom barcode"
-          id="custom"
-          checked={formData.barchoice === "Enter custom barcode"}
-          onChange={handleChange}
-          name="barchoice"
-          label="Enter custom barcode"
-          inline
-          onClick={israndom}
-        />
-        <Form.Check
-          type="radio"
-          value="Generate random barcode"
-          id="random"
-          checked={formData.barchoice === "Generate random barcode"}
-          onChange={handleChange}
-          name="barchoice"
-          label="Generate random barcode"
-          inline
-          onClick={toDo}
-        />
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label for="barcode">Barcode</Form.Label>
-        <Form.Control
-          type="text"
-          id="barcode"
-          onChange={handleChange}
-          value={isRandom ? formData.randombar : formData.barCode}
-          name="barcode"
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label for="image">Image</Form.Label>
-        <Form.Control
-          type="file"
-          id="image"
-          accept="image/*"
-          onChange={handleChange}
-          value={formData.image}
-          name="image"
-        />
-      </Form.Group>
-      <h2>Depreciation</h2>
-
-      <p>
-        Depreciation data helps you track the asset value over time and at the
-        end of its life cycle
-      </p>
-      <Row>
-        <Col>
-          <Form.Group>
-            <Form.Label for="purchaseprice ">Purchase Price</Form.Label>
-
-            <div className="currency-wrap">
-              <span className="currency-code">TND</span>
-              <Form.Control
-                type="number"
-                className="text-currency"
-                id="purchaseprice"
+    <form onSubmit={handleSubmit}>
+      <h1 className="text-xl font-bold">Asset Information</h1>
+      <div className="grid grid-cols-1 gap-6">
+        <label htmlFor="" className="block">
+          <label htmlFor="name" className="text-slate-700">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            onChange={handleChange}
+            value={formData.name}
+            name="name"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+        <label htmlFor="" className="block">
+          <label htmlFor="description" className="text-slate-700">
+            Description
+          </label>
+          <input
+            type="text"
+            id="description"
+            onChange={handleChange}
+            value={formData.description}
+            name="description"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+        <label htmlFor="" className="block">
+          <label htmlFor="model" className="text-slate-700">
+            Model
+          </label>
+          <input
+            type="text"
+            id="model"
+            onChange={handleChange}
+            value={formData.model}
+            name="model"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+        <Row>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="category" className="text-slate-700">
+                Category
+              </label>
+              <input
+                type="text"
+                id="category"
                 onChange={handleChange}
-                value={formData.purchasePrice}
-                name="purchasePrice"
+                value={formData.category}
+                name="category"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
-            </div>
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group>
-            <Form.Label for="purchasedate">Purchase Date</Form.Label>
-            <Form.Control
-              type="date"
-              id="purchasedate"
-              onChange={handleChange}
-              value={formData.purchaseDate}
-              name="purchaseDate"
-            />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Form.Group>
-            <Form.Label for="residualvalue">Residual Value</Form.Label>
-            <div className="currency-wrap">
-              <span className="currency-code">TND</span>
-              <Form.Control
-                type="number"
-                className="text-currency"
-                id="residualvalue"
+            </label>
+          </Col>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="area" className="text-slate-700">
+                Area
+              </label>
+              <input
+                type="text"
+                id="area"
                 onChange={handleChange}
-                value={formData.residualValue}
-                name="residualValue"
+                value={formData.area}
+                name="area"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
-            </div>
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group>
-            <Form.Label for="useFullife">Useful Life</Form.Label>
-            <Form.Control
-              type="number"
-              id="useFullife"
-              onChange={handleChange}
-              value={formData.usefulLife}
-              name="usefulLife"
-            />
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group>
-            <Form.Control
-              as="select"
-              onChange={handleChange}
-              value={formData.time}
-              name="time"
-            >
+            </label>
+          </Col>
+        </Row>
+        <label htmlFor="" className="block">
+          <input
+            type="radio"
+            value="Enter custom barcode"
+            id="custom"
+            checked={formData.barchoice === "Enter custom barcode"}
+            onChange={handleChange}
+            name="barchoice"
+            onClick={israndom}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+          <input
+            type="radio"
+            value="Generate random barcode"
+            id="random"
+            checked={formData.barchoice === "Generate random barcode"}
+            onChange={handleChange}
+            name="barchoice"
+            onClick={toDo}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+        <label htmlFor="" className="block">
+          <label htmlFor="barcode" className="text-slate-700">
+            Barcode
+          </label>
+          <input
+            type="text"
+            id="barcode"
+            onChange={handleChange}
+            value={isRandom ? formData.randombar : formData.barCode}
+            name="barcode"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+        <label htmlFor="" className="block">
+          <label htmlFor="image" className="text-slate-700">
+            Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            accept="image/*"
+            onChange={handleChange}
+            value={formData.image}
+            name="image"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+      </div>
+      <h2 className="text-xl font-bold">Depreciation</h2>
+      <div className="grid grid-cols-1 gap-6">
+        <p>
+          Depreciation data helps you track the asset value over time and at the
+          end of its life cycle
+        </p>
+        <Row>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="purchaseprice " className="text-slate-700">
+                Purchase Price
+              </label>
+
+              <div className="currency-wrap">
+                <span className="currency-code">TND</span>
+                <input
+                  type="number"
+                  id="purchaseprice"
+                  onChange={handleChange}
+                  value={formData.purchasePrice}
+                  name="purchasePrice"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                />
+              </div>
+            </label>
+          </Col>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="purchasedate" className="text-slate-700">
+                Purchase Date
+              </label>
+              <input
+                type="date"
+                id="purchasedate"
+                onChange={handleChange}
+                value={formData.purchaseDate}
+                name="purchaseDate"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+            </label>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="residualvalue">Residual Value</label>
+              <div className="currency-wrap">
+                <span className="currency-code">TND</span>
+                <input
+                  type="number"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  id="residualvalue"
+                  onChange={handleChange}
+                  value={formData.residualValue}
+                  name="residualValue"
+                />
+              </div>
+            </label>
+          </Col>
+          <Col>
+            <label htmlFor="" className="block">
+              <label htmlFor="useFullife" className="text-slate-700">
+                Useful Life
+              </label>
+              <input
+                type="number"
+                id="useFullife"
+                onChange={handleChange}
+                value={formData.usefulLife}
+                name="usefulLife"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              />
+            </label>
+          </Col>
+          <Col>
+            <label htmlFor="" className="block">
+              <input
+                type="select"
+                onChange={handleChange}
+                value={formData.time}
+                name="time"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              />
               <option value="year">years</option>
               <option value="month">months</option>
               <option value="week">weeks</option>
               <option value="day">days</option>
-            </Form.Control>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Form.Group>
-        <Form.Label for="receipt">Upload purchase receipt</Form.Label>
-        <Form.Control
-          type="file"
-          id="receipt"
-          onChange={handleChange}
-          value={formData.receipt}
-          name="receipt"
-        ></Form.Control>
-      </Form.Group>
-      <h2>Assigned To</h2>
-      <div className="assign">
-        <Form.Group>
-          <Form.Label for="worker">Worker</Form.Label>
-          <Form.Control
-            type="text"
-            id="worker"
+            </label>
+          </Col>
+        </Row>
+        <label htmlFor="" className="block">
+          <label htmlFor="receipt" className="text-slate-700">
+            Upload purchase receipt
+          </label>
+          <input
+            type="file"
+            id="receipt"
             onChange={handleChange}
-            value={formData.worker}
-            name="worker"
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label for="additionalworkers">Additional Workers</Form.Label>
-          <Form.Control
-            type="text"
-            id="additionalworkers"
-            onChange={handleChange}
-            value={formData.additionalWorker}
-            name="additionalWorker"
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label for="teams">Teams</Form.Label>
-          <Form.Control
-            type="text"
-            id="teams"
-            onChange={handleChange}
-            value={formData.teams}
-            name="teams"
-          />
-        </Form.Group>
+            value={formData.receipt}
+            name="receipt"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          ></input>
+        </label>
+      </div>
+      <h2 className="text-xl font-bold">Assigned To</h2>
+      <div className="grid grid-cols-1 gap-6">
+        <div className="assign">
+          <label htmlFor="" className="block">
+            <label htmlFor="worker" className="text-slate-700">
+              Worker
+            </label>
+            <input
+              type="text"
+              id="worker"
+              onChange={handleChange}
+              value={formData.worker}
+              name="worker"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+          <label htmlFor="" className="block">
+            <label htmlFor="additionalworkers">Additional Workers</label>
+            <input
+              type="text"
+              id="additionalworkers"
+              onChange={handleChange}
+              value={formData.additionalWorker}
+              name="additionalWorker"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            ></input>
+          </label>
+          <label htmlFor="" className="block">
+            <label htmlFor="teams" className="text-slate-700">
+              Teams
+            </label>
+            <input
+              type="text"
+              id="teams"
+              onChange={handleChange}
+              value={formData.teams}
+              name="teams"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+        </div>
       </div>
 
-      <h2>More Information</h2>
-      <div className="moreInformation">
-        <Form.Group>
-          <Form.Label for="vendors">Vendors</Form.Label>
-          <Form.Control
-            type="text"
-            id="vendors"
-            onChange={handleChange}
-            value={formData.vendors}
-            name="vendors"
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label for="customers">Customers</Form.Label>
-          <Form.Control
-            type="text"
-            id="customers"
-            onChange={handleChange}
-            value={formData.customers}
-            name="customers"
-          />
-        </Form.Group>
+      <h2 className="text-xl font-bold">More Information</h2>
+      <div className="grid grid-cols-1 gap-6">
+        <div className="moreInformation">
+          <label htmlFor="" className="block">
+            <label htmlFor="vendors" className="text-slate-700">
+              Vendors
+            </label>
+            <input
+              type="text"
+              id="vendors"
+              onChange={handleChange}
+              value={formData.vendors}
+              name="vendors"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+          <label htmlFor="" className="block">
+            <label htmlFor="customers" className="text-slate-700">
+              Customers
+            </label>
+            <input
+              type="text"
+              id="customers"
+              onChange={handleChange}
+              value={formData.customers}
+              name="customers"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
 
-        <Row>
           <Col>
-            <Form.Group>
-              <Form.Label for="placedInServiceDate">
+            <label htmlFor="" className="block">
+              <label htmlFor="placedInServiceDate" className="text-slate-700">
                 Placed in Service Date
-              </Form.Label>
-              <Form.Control
+              </label>
+              <input
                 type="text"
                 id="placedInServiceDate"
                 onChange={handleChange}
                 value={formData.placedInService}
                 name="placedInService"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
-            </Form.Group>
+            </label>
           </Col>
-          <Col>
-            <Form.Group>
-              <Form.Label for="WarrantyExpirationDate">
-                Warranty Expiration Date
-              </Form.Label>
-              <Form.Control
-                type="date"
-                id="WarrantyExpirationDate"
-                onChange={handleChange}
-                value={formData.warranty}
-                name="warranty"
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Form.Group>
-          <Form.Label for="additionalInformation">
-            Additional Information
-          </Form.Label>
-          <Form.Control
-            type="text"
-            id="additionalInformation"
-            onChange={handleChange}
-            value={formData.additionalInformation}
-            name="additionalInformation"
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label for="warranty">Upload warranty file </Form.Label>
-          <Form.Control
-            type="file"
-            id="warranty"
-            onChange={handleChange}
-            value={formData.uploadWarranty}
-            name="uploadWarranty"
-          />
-        </Form.Group>
-      </div>
-      <h2>Parts </h2>
-      <Form.Group>
-        <Form.Control
-          type="file"
-          onChange={handleChange}
-          value={formData.file1}
-          name="file1"
-        />
-      </Form.Group>
-      <h2>Files</h2>
 
-      <Form.Group>
-        <Form.Control
-          type="file"
-          onChange={handleChange}
-          value={formData.file2}
-          name="file2"
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Control type="submit" />
-      </Form.Group>
-    </Form>
+          <label htmlFor="" className="block">
+            <label htmlFor="WarrantyExpirationDate" className="text-slate-700">
+              Warranty Expiration Date
+            </label>
+            <input
+              type="date"
+              id="WarrantyExpirationDate"
+              onChange={handleChange}
+              value={formData.warranty}
+              name="warranty"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+
+          <label htmlFor="" className="block">
+            <label htmlFor="additionalInformation" className="text-slate-700">
+              Additional Information
+            </label>
+            <input
+              type="text"
+              id="additionalInformation"
+              onChange={handleChange}
+              value={formData.additionalInformation}
+              name="additionalInformation"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+          <label htmlFor="" className="block">
+            <label htmlFor="warranty" className="text-slate-700">
+              Upload warranty file{" "}
+            </label>
+            <input
+              type="file"
+              id="warranty"
+              onChange={handleChange}
+              value={formData.uploadWarranty}
+              name="uploadWarranty"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+        </div>
+      </div>
+      <h2 className="text-xl font-bold">Parts </h2>
+      <div className="grid grid-cols-1 gap-6">
+        <label htmlFor="" className="block">
+          <input
+            type="file"
+            onChange={handleChange}
+            value={formData.file1}
+            name="file1"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+      </div>
+      <h2 className="text-xl font-bold">Files</h2>
+      <div className="grid grid-cols-1 gap-6">
+        <label htmlFor="" className="block">
+          <input
+            type="file"
+            onChange={handleChange}
+            value={formData.file2}
+            name="file2"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+      </div>
+      <input type="submit"></input>
+    </form>
   );
 };
 

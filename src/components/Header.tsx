@@ -1,9 +1,17 @@
 import Account from "./Account";
+import HeaderDropDown from "./HeaderDropDown";
 import NavButton from "./NavButton";
 import { Codesandbox, Bell } from "lucide-react";
 
 const Header = () => {
-  const navbar = ["Your Work", "Dashboards", "Teams"];
+  const navbar = [
+    [["Your Work"], ["Assign to me", "Recent"]],
+    [
+      ["Dashboards"],
+      ["Default dashboard", "View all dashboards", "Create dashboard"],
+    ],
+    [["Teams"], ["Invite people", "Create a team", "Search people and teams"]],
+  ];
 
   return (
     <div className="fixed top-0 w-full z-10 bg-white border-b shadow-sm px-3 text-slate-700">
@@ -15,8 +23,10 @@ const Header = () => {
           </div>
           <div className="w-20"></div>
           <div className="flex items-center">
-            {navbar.map((name, index) => (
-              <NavButton name={name} key={index} />
+            {navbar.map((list, index) => (
+              <HeaderDropDown list={list[1]} key={index}>
+                <NavButton name={list[0][0]} />
+              </HeaderDropDown>
             ))}
           </div>
         </nav>
