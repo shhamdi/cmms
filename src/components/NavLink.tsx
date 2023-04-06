@@ -24,7 +24,7 @@ const NavLink = ({
         <div
           className={` ${
             pathname === "/" + route_segment
-              ? "w-1.5 absolute top-2 left-0 bottom-2 bg-blue-800 rounded-full"
+              ? "w-1.5 absolute top-[12px] left-0 bottom-[12px] bg-blue-800 rounded-full"
               : ""
           }`}
         ></div>
