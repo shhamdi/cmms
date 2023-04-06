@@ -11,7 +11,7 @@ export default function DashboardLayout({
       <Header />
       <div className="flex">
         <SideNavbar />
-        <div className="absolute top-[3.5rem] left-[18rem] ml-[1rem] mt-[1rem]">{children}</div>
+        <div className="w-full mt-14 ml-[19rem] mr-[1rem]">{children}</div>
       </div>
     </>
   );
