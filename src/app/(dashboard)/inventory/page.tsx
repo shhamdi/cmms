@@ -1,7 +1,9 @@
+"use client";
 import AddElement from "@/components/common/AddElement";
 import Button from "@/components/common/Button";
 import { Plus } from "lucide-react";
 import labels from "./labels";
+import Example from "./Example";
 
 const Inventory = () => {
   return (
@@ -17,6 +19,9 @@ const Inventory = () => {
       </header>
 
       <div className="absolute left-[-1rem] right-[-1rem] h-[1px] bg-slate-100"></div>
+      <div className="mt-16">
+        <Example />
+      </div>
     </div>
   );
 };

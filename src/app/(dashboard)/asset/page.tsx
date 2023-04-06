@@ -9,7 +9,7 @@ const Assets = () => {
       <header className="flex justify-between items-center w-full h-12">
         <div className="font-bold text-xl">Assets</div>
         <AddElement title="Create Part" description="" labels={labels}>
-          <Button>
+          <Button category="primary">
             <Plus size={18} className="mr-1" />
             Add Asset
           </Button>
