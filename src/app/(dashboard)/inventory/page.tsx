@@ -15,6 +15,7 @@ const Inventory = () => {
           </Button>
         </AddElement>
       </header>
+
       <div className="absolute left-[-1rem] right-[-1rem] h-[1px] bg-slate-100"></div>
     </div>
   );
