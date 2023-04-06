@@ -1,0 +1,32 @@
+.currency-wrap {
+  position: relative;
+}
+
+.currency-code {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+}
+
+.text-currency {
+  padding: 10px 20px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+.navbar {
+  display: flex;
+}
+.add {
+  margin-left: 1420px;
+}
+.form {
+  text-align: center;
+  margin-left: 450px;
+}
+.search {
+  display: flex;
+  margin-right: 1000px;
+}
+h1 {
+  font-size: 50px;
+}
