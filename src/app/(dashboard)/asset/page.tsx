@@ -1,45 +1,23 @@
-"use client";
-import React from "react";
+import AddElement from "@/components/common/AddElement";
+import { Plus } from "lucide-react";
+import Button from "@/components/common/Button";
 import Forms from "./Forms";
-// import { Row, Col, Form } from "react-bootstrap";
-// import Button from "react-bootstrap/Button";
-// import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-// import "/home/anis/Desktop/PFA/cmms/src/app/(dashboard)/asset/style.css";
 const Assets = () => {
-  const [isClicked, setisClicked] = useState(false);
-  function add() {
-    setisClicked(!isClicked);
-  }
-  function cancel() {
-    setisClicked(!isClicked);
-  }
-  // return (
-  //   <div>
-  //     {isClicked ? (
-  //       <div>
-  //         <Button className="addButton" onClick={cancel}>
-  //           Cancel
-  //         </Button>
-  //         <Forms />
-  //       </div>
-  //     ) : (
-  //       <div>
-  //         <nav className="navbar">
-  //           <h1>Assets</h1>
-
-  //           <Form.Group className="search">
-  //             <Form.Control type="search" placeholder="search" />
-  //             <Button>Search</Button>
-  //           </Form.Group>
-  //           <Button onClick={add} className="add">
-  //             Add Asset
-  //           </Button>
-  //         </nav>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
+  const labels: React.ReactNode = <>{/* <Forms /> */}</>;
+  return (
+    <div className="relative">
+      <header className="flex justify-between items-center w-full h-12">
+        <div className="font-bold text-xl">Assets</div>
+        <AddElement title="Create Part" description="" labels={labels}>
+          <Button>
+            <Plus size={18} className="mr-1" />
+            Add Asset
+          </Button>
+        </AddElement>
+      </header>
+      <div className="absolute left-[-1rem] right-[-1rem] h-[1px] bg-slate-100"></div>
+    </div>
+  );
 };
 
 export default Assets;
