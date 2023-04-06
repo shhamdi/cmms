@@ -15,7 +15,7 @@ import {
 
 const SideNavbar = () => {
   return (
-    <div className="fixed left-0 h-full top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-50 text-slate-800 shadow-md">
+    <div className="fixed left-0 bottom-0 top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-50 text-slate-800 shadow-md overflow-y-auto">
       <NavLink name="Work Orders" route_segment="work-orders">
         <Briefcase size={18} />
       </NavLink>
@@ -27,7 +27,7 @@ const SideNavbar = () => {
         <Construction size={18} />
       </NavLink>
 
-      <div className="w-full h-6"></div>
+      <div className="w-full h-6 flex-shrink-0"></div>
 
       <NavLink name="Locations" route_segment="locations">
         <Map size={18} />
@@ -49,13 +49,13 @@ const SideNavbar = () => {
         <Gauge size={18} />
       </NavLink>
 
-      <div className="w-full h-6"></div>
+      <div className="w-full h-6 flex-shrink-0"></div>
 
       <NavLink name="Vendors & Custormers" route_segment="vendors">
         <Contact size={18} />
       </NavLink>
 
-      <div className="w-full h-6"></div>
+      <div className="w-full h-6 flex-shrink-0"></div>
 
       <NavLink name="Checklists" route_segment="checklist">
         <ListChecks size={18} />
