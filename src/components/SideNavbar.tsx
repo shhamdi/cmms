@@ -1,44 +1,73 @@
 import NavLink from "./NavLink";
+import {
+  Briefcase,
+  Construction,
+  Map,
+  Factory,
+  Boxes,
+  FileCheck2,
+  Gauge,
+  Contact,
+  ListChecks,
+  Bookmark,
+  Files,
+} from "lucide-react";
 
 const SideNavbar = () => {
-  const navLinks = [
-    {
-      name: "Work Orders",
-      route_segment: "work-orders",
-      icon: "fileTrayFullOutline",
-      notif: 0,
-    },
-    {
-      name: "Preventive Maintenance",
-      route_segment: "preventive-maintenance",
-      icon: "shieldCheckmarkOutline",
-      notif: 1,
-    },
-    {
-      name: "Locations",
-      route_segment: "locations",
-      icon: "locationOutline",
-      notif: 0,
-    },
-    {
-      name: "Assets",
-      route_segment: "asset",
-      icon: "constructOutline",
-      notif: 23,
-    },
-    {
-      name: "Inventory",
-      route_segment: "inventory",
-      icon: "extensionPuzzleOutline",
-      notif: 8,
-    },
-  ];
-
   return (
-    <div className="flex flex-col p-4 border-r border-solid h-screen w-80">
-      {navLinks.map((link, index) => (
-        <NavLink {...link} key={index} />
-      ))}
+    <div className="fixed left-0 h-full top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-50 text-slate-800 shadow-md">
+      <NavLink name="Work Orders" route_segment="work-orders">
+        <Briefcase size={18} />
+      </NavLink>
+
+      <NavLink
+        name="Preventive Maintenance"
+        route_segment="preventive-maintenance"
+      >
+        <Construction size={18} />
+      </NavLink>
+
+      <div className="w-full h-6"></div>
+
+      <NavLink name="Locations" route_segment="locations">
+        <Map size={18} />
+      </NavLink>
+
+      <NavLink name="Assets" route_segment="asset">
+        <Factory size={18} />
+      </NavLink>
+
+      <NavLink name="Inventory" route_segment="inventory">
+        <Boxes size={18} />
+      </NavLink>
+
+      <NavLink name="Purchase Orders" route_segment="purchase-orders">
+        <FileCheck2 size={18} />
+      </NavLink>
+
+      <NavLink name="Meters" route_segment="meters">
+        <Gauge size={18} />
+      </NavLink>
+
+      <div className="w-full h-6"></div>
+
+      <NavLink name="Vendors & Custormers" route_segment="vendors">
+        <Contact size={18} />
+      </NavLink>
+
+      <div className="w-full h-6"></div>
+
+      <NavLink name="Checklists" route_segment="checklist">
+        <ListChecks size={18} />
+      </NavLink>
+
+      <NavLink name="Categories" route_segment="categories">
+        <Bookmark size={18} />
+      </NavLink>
+
+      <NavLink name="Documents" route_segment="documents">
+        <Files size={18} />
+      </NavLink>
     </div>
   );
 };
