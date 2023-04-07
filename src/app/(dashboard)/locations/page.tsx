@@ -97,8 +97,8 @@ const Location = () => {
             </div>
           </ButtonGroup>
 
-          <AddElement title="Create Part" description="" labels={labels}>
-            <Button>
+          <AddElement title="Add Location" description="" labels={labels}>
+            <Button category="primary">
               <Plus size={18} className="mr-1" />
               Add Location
             </Button>
