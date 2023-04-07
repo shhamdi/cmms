@@ -2,7 +2,7 @@
 
 const Button = ({
   children,
-  category,
+  category = "primary",
 }: {
   children: React.ReactNode;
   category: "primary" | "secondary";
