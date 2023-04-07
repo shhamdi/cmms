@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import Form from "react-bootstrap/Form";
-import { Row, Col } from "react-bootstrap";
+
 import { useState } from "react";
-import "/home/anis/Desktop/PFA/cmms/src/app/(dashboard)/asset/style.css";
 
 const Forms = () => {
   const [randomValue, setRandomValue] = useState(0);
@@ -85,14 +83,11 @@ const Forms = () => {
           <label htmlFor="description" className="text-slate-700">
             Description
           </label>
-          <input
-            type="text"
+          <textarea
             id="description"
-            onChange={handleChange}
-            value={formData.description}
             name="description"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+          ></textarea>
         </label>
         <label htmlFor="" className="block">
           <label htmlFor="model" className="text-slate-700">
@@ -107,73 +102,35 @@ const Forms = () => {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="category" className="text-slate-700">
-                Category
-              </label>
-              <input
-                type="text"
-                id="category"
-                onChange={handleChange}
-                value={formData.category}
-                name="category"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="area" className="text-slate-700">
-                Area
-              </label>
-              <input
-                type="text"
-                id="area"
-                onChange={handleChange}
-                value={formData.area}
-                name="area"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-        </Row>
+
         <label htmlFor="" className="block">
-          <input
-            type="radio"
-            value="Enter custom barcode"
-            id="custom"
-            checked={formData.barchoice === "Enter custom barcode"}
-            onChange={handleChange}
-            name="barchoice"
-            onClick={israndom}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-          <input
-            type="radio"
-            value="Generate random barcode"
-            id="random"
-            checked={formData.barchoice === "Generate random barcode"}
-            onChange={handleChange}
-            name="barchoice"
-            onClick={toDo}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </label>
-        <label htmlFor="" className="block">
-          <label htmlFor="barcode" className="text-slate-700">
-            Barcode
+          <label htmlFor="category" className="text-slate-700">
+            Category
           </label>
           <input
             type="text"
-            id="barcode"
+            id="category"
             onChange={handleChange}
-            value={isRandom ? formData.randombar : formData.barCode}
-            name="barcode"
+            value={formData.category}
+            name="category"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="area" className="text-slate-700">
+            Area
+          </label>
+          <input
+            type="text"
+            id="area"
+            onChange={handleChange}
+            value={formData.area}
+            name="area"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
         <label htmlFor="" className="block">
           <label htmlFor="image" className="text-slate-700">
             Image
@@ -195,90 +152,82 @@ const Forms = () => {
           Depreciation data helps you track the asset value over time and at the
           end of its life cycle
         </p>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="purchaseprice " className="text-slate-700">
-                Purchase Price
-              </label>
 
-              <div className="currency-wrap">
-                <span className="currency-code">TND</span>
-                <input
-                  type="number"
-                  id="purchaseprice"
-                  onChange={handleChange}
-                  value={formData.purchasePrice}
-                  name="purchasePrice"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="purchasedate" className="text-slate-700">
-                Purchase Date
-              </label>
-              <input
-                type="date"
-                id="purchasedate"
-                onChange={handleChange}
-                value={formData.purchaseDate}
-                name="purchaseDate"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="residualvalue">Residual Value</label>
-              <div className="currency-wrap">
-                <span className="currency-code">TND</span>
-                <input
-                  type="number"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  id="residualvalue"
-                  onChange={handleChange}
-                  value={formData.residualValue}
-                  name="residualValue"
-                />
-              </div>
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="useFullife" className="text-slate-700">
-                Useful Life
-              </label>
-              <input
-                type="number"
-                id="useFullife"
-                onChange={handleChange}
-                value={formData.usefulLife}
-                name="usefulLife"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <input
-                type="select"
-                onChange={handleChange}
-                value={formData.time}
-                name="time"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-              <option value="year">years</option>
-              <option value="month">months</option>
-              <option value="week">weeks</option>
-              <option value="day">days</option>
-            </label>
-          </Col>
-        </Row>
+        <label htmlFor="" className="block">
+          <label htmlFor="purchaseprice " className="text-slate-700">
+            Purchase Price
+          </label>
+
+          <div className="currency-wrap">
+            <span className="currency-code">TND</span>
+            <input
+              type="number"
+              id="purchaseprice"
+              onChange={handleChange}
+              value={formData.purchasePrice}
+              name="purchasePrice"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </div>
+        </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="purchasedate" className="text-slate-700">
+            Purchase Date
+          </label>
+          <input
+            type="date"
+            id="purchasedate"
+            onChange={handleChange}
+            value={formData.purchaseDate}
+            name="purchaseDate"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="residualvalue">Residual Value</label>
+          <div className="currency-wrap">
+            <span className="currency-code">TND</span>
+            <input
+              type="number"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              id="residualvalue"
+              onChange={handleChange}
+              value={formData.residualValue}
+              name="residualValue"
+            />
+          </div>
+        </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="useFullife" className="text-slate-700">
+            Useful Life
+          </label>
+          <input
+            type="number"
+            id="useFullife"
+            onChange={handleChange}
+            value={formData.usefulLife}
+            name="usefulLife"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
+        <label htmlFor="" className="block">
+          <input
+            type="select"
+            onChange={handleChange}
+            value={formData.time}
+            name="time"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+          <option value="year">years</option>
+          <option value="month">months</option>
+          <option value="week">weeks</option>
+          <option value="day">days</option>
+        </label>
+
         <label htmlFor="" className="block">
           <label htmlFor="receipt" className="text-slate-700">
             Upload purchase receipt
@@ -366,21 +315,19 @@ const Forms = () => {
             />
           </label>
 
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="placedInServiceDate" className="text-slate-700">
-                Placed in Service Date
-              </label>
-              <input
-                type="text"
-                id="placedInServiceDate"
-                onChange={handleChange}
-                value={formData.placedInService}
-                name="placedInService"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
+          <label htmlFor="" className="block">
+            <label htmlFor="placedInServiceDate" className="text-slate-700">
+              Placed in Service Date
             </label>
-          </Col>
+            <input
+              type="text"
+              id="placedInServiceDate"
+              onChange={handleChange}
+              value={formData.placedInService}
+              name="placedInService"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
 
           <label htmlFor="" className="block">
             <label htmlFor="WarrantyExpirationDate" className="text-slate-700">
@@ -436,18 +383,40 @@ const Forms = () => {
           />
         </label>
       </div>
-      <h2 className="text-xl font-bold">Files</h2>
-      <div className="grid grid-cols-1 gap-6">
-        <label htmlFor="" className="block">
-          <input
-            type="file"
-            onChange={handleChange}
-            value={formData.file2}
-            name="file2"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+
+      <div className="flex items-center justify-center w-full">
+        <label
+          htmlFor="dropzone-file"
+          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+        >
+          <div className="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg
+              aria-hidden="true"
+              className="w-10 h-10 mb-3 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+              ></path>
+            </svg>
+            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              <span className="font-semibold">Click to upload</span> or drag and
+              drop
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              SVG, PNG, JPG or GIF (MAX. 800x400px)
+            </p>
+          </div>
+          <input id="dropzone-file" type="file" className="hidden" />
         </label>
       </div>
+
       <input type="submit"></input>
     </form>
   );
