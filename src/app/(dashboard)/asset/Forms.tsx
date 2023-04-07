@@ -1,9 +1,7 @@
 "use client";
-import React from "react";
-import Form from "react-bootstrap/Form";
-import { Row, Col } from "react-bootstrap";
+import DropFile from "@/components/common/DropFile";
+
 import { useState } from "react";
-import "/home/anis/Desktop/PFA/cmms/src/app/(dashboard)/asset/style.css";
 
 const Forms = () => {
   const [randomValue, setRandomValue] = useState(0);
@@ -85,14 +83,11 @@ const Forms = () => {
           <label htmlFor="description" className="text-slate-700">
             Description
           </label>
-          <input
-            type="text"
+          <textarea
             id="description"
-            onChange={handleChange}
-            value={formData.description}
             name="description"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+          ></textarea>
         </label>
         <label htmlFor="" className="block">
           <label htmlFor="model" className="text-slate-700">
@@ -107,86 +102,40 @@ const Forms = () => {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="category" className="text-slate-700">
-                Category
-              </label>
-              <input
-                type="text"
-                id="category"
-                onChange={handleChange}
-                value={formData.category}
-                name="category"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="area" className="text-slate-700">
-                Area
-              </label>
-              <input
-                type="text"
-                id="area"
-                onChange={handleChange}
-                value={formData.area}
-                name="area"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-        </Row>
+
         <label htmlFor="" className="block">
-          <input
-            type="radio"
-            value="Enter custom barcode"
-            id="custom"
-            checked={formData.barchoice === "Enter custom barcode"}
-            onChange={handleChange}
-            name="barchoice"
-            onClick={israndom}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-          <input
-            type="radio"
-            value="Generate random barcode"
-            id="random"
-            checked={formData.barchoice === "Generate random barcode"}
-            onChange={handleChange}
-            name="barchoice"
-            onClick={toDo}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </label>
-        <label htmlFor="" className="block">
-          <label htmlFor="barcode" className="text-slate-700">
-            Barcode
+          <label htmlFor="category" className="text-slate-700">
+            Category
           </label>
           <input
             type="text"
-            id="barcode"
+            id="category"
             onChange={handleChange}
-            value={isRandom ? formData.randombar : formData.barCode}
-            name="barcode"
+            value={formData.category}
+            name="category"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="area" className="text-slate-700">
+            Area
+          </label>
+          <input
+            type="text"
+            id="area"
+            onChange={handleChange}
+            value={formData.area}
+            name="area"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
         <label htmlFor="" className="block">
           <label htmlFor="image" className="text-slate-700">
             Image
           </label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={handleChange}
-            value={formData.image}
-            name="image"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+          <DropFile />
         </label>
       </div>
       <h2 className="text-xl font-bold">Depreciation</h2>
@@ -195,102 +144,82 @@ const Forms = () => {
           Depreciation data helps you track the asset value over time and at the
           end of its life cycle
         </p>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="purchaseprice " className="text-slate-700">
-                Purchase Price
-              </label>
 
-              <div className="currency-wrap">
-                <span className="currency-code">TND</span>
-                <input
-                  type="number"
-                  id="purchaseprice"
-                  onChange={handleChange}
-                  value={formData.purchasePrice}
-                  name="purchasePrice"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
+        <label htmlFor="" className="block">
+          <label htmlFor="purchaseprice " className="text-slate-700">
+            Purchase Price
+          </label>
+
+          <input
+            type="number"
+            id="purchaseprice"
+            onChange={handleChange}
+            value={formData.purchasePrice}
+            name="purchasePrice"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="purchasedate" className="text-slate-700">
+            Purchase Date
+          </label>
+          <input
+            type="date"
+            id="purchasedate"
+            onChange={handleChange}
+            value={formData.purchaseDate}
+            name="purchaseDate"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </label>
+
+        <label htmlFor="" className="block">
+          <label htmlFor="residualvalue">Residual Value</label>
+
+          <input
+            type="number"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            id="residualvalue"
+            onChange={handleChange}
+            value={formData.residualValue}
+            name="residualValue"
+          />
+        </label>
+        <div className="flex items-center justify-between">
+          <label htmlFor="" className="block">
+            <label htmlFor="useFullife" className="text-slate-700">
+              Useful Life
             </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="purchasedate" className="text-slate-700">
-                Purchase Date
-              </label>
-              <input
-                type="date"
-                id="purchasedate"
-                onChange={handleChange}
-                value={formData.purchaseDate}
-                name="purchaseDate"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="residualvalue">Residual Value</label>
-              <div className="currency-wrap">
-                <span className="currency-code">TND</span>
-                <input
-                  type="number"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  id="residualvalue"
-                  onChange={handleChange}
-                  value={formData.residualValue}
-                  name="residualValue"
-                />
-              </div>
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="useFullife" className="text-slate-700">
-                Useful Life
-              </label>
-              <input
-                type="number"
-                id="useFullife"
-                onChange={handleChange}
-                value={formData.usefulLife}
-                name="usefulLife"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
-            </label>
-          </Col>
-          <Col>
-            <label htmlFor="" className="block">
-              <input
-                type="select"
-                onChange={handleChange}
-                value={formData.time}
-                name="time"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
+            <input
+              type="number"
+              id="useFullife"
+              onChange={handleChange}
+              value={formData.usefulLife}
+              name="usefulLife"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
+
+          <label htmlFor="" className="block mt-[22px]">
+            <select
+              value={formData.time}
+              name="time"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            >
               <option value="year">years</option>
               <option value="month">months</option>
               <option value="week">weeks</option>
               <option value="day">days</option>
-            </label>
-          </Col>
-        </Row>
+            </select>
+          </label>
+        </div>
+
         <label htmlFor="" className="block">
           <label htmlFor="receipt" className="text-slate-700">
             Upload purchase receipt
           </label>
-          <input
-            type="file"
-            id="receipt"
-            onChange={handleChange}
-            value={formData.receipt}
-            name="receipt"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          ></input>
+          <DropFile />
         </label>
       </div>
       <h2 className="text-xl font-bold">Assigned To</h2>
@@ -366,21 +295,19 @@ const Forms = () => {
             />
           </label>
 
-          <Col>
-            <label htmlFor="" className="block">
-              <label htmlFor="placedInServiceDate" className="text-slate-700">
-                Placed in Service Date
-              </label>
-              <input
-                type="text"
-                id="placedInServiceDate"
-                onChange={handleChange}
-                value={formData.placedInService}
-                name="placedInService"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              />
+          <label htmlFor="" className="block">
+            <label htmlFor="placedInServiceDate" className="text-slate-700">
+              Placed in Service Date
             </label>
-          </Col>
+            <input
+              type="text"
+              id="placedInServiceDate"
+              onChange={handleChange}
+              value={formData.placedInService}
+              name="placedInService"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
 
           <label htmlFor="" className="block">
             <label htmlFor="WarrantyExpirationDate" className="text-slate-700">
@@ -410,45 +337,14 @@ const Forms = () => {
             />
           </label>
           <label htmlFor="" className="block">
-            <label htmlFor="warranty" className="text-slate-700">
-              Upload warranty file{" "}
-            </label>
-            <input
-              type="file"
-              id="warranty"
-              onChange={handleChange}
-              value={formData.uploadWarranty}
-              name="uploadWarranty"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            />
+            <label className="text-slate-700">Upload warranty file </label>
+            <DropFile />
           </label>
         </div>
       </div>
       <h2 className="text-xl font-bold">Parts </h2>
-      <div className="grid grid-cols-1 gap-6">
-        <label htmlFor="" className="block">
-          <input
-            type="file"
-            onChange={handleChange}
-            value={formData.file1}
-            name="file1"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </label>
-      </div>
-      <h2 className="text-xl font-bold">Files</h2>
-      <div className="grid grid-cols-1 gap-6">
-        <label htmlFor="" className="block">
-          <input
-            type="file"
-            onChange={handleChange}
-            value={formData.file2}
-            name="file2"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </label>
-      </div>
-      <input type="submit"></input>
+
+      <DropFile />
     </form>
   );
 };
