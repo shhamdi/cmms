@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import DropFile from "@/components/common/DropFile";
 
 import { useState } from "react";
 
@@ -135,15 +135,7 @@ const Forms = () => {
           <label htmlFor="image" className="text-slate-700">
             Image
           </label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={handleChange}
-            value={formData.image}
-            name="image"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
+          <DropFile />
         </label>
       </div>
       <h2 className="text-xl font-bold">Depreciation</h2>
@@ -158,17 +150,14 @@ const Forms = () => {
             Purchase Price
           </label>
 
-          <div className="currency-wrap">
-            <span className="currency-code">TND</span>
-            <input
-              type="number"
-              id="purchaseprice"
-              onChange={handleChange}
-              value={formData.purchasePrice}
-              name="purchasePrice"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            />
-          </div>
+          <input
+            type="number"
+            id="purchaseprice"
+            onChange={handleChange}
+            value={formData.purchasePrice}
+            name="purchasePrice"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
         </label>
 
         <label htmlFor="" className="block">
@@ -187,59 +176,50 @@ const Forms = () => {
 
         <label htmlFor="" className="block">
           <label htmlFor="residualvalue">Residual Value</label>
-          <div className="currency-wrap">
-            <span className="currency-code">TND</span>
-            <input
-              type="number"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-              id="residualvalue"
-              onChange={handleChange}
-              value={formData.residualValue}
-              name="residualValue"
-            />
-          </div>
-        </label>
 
-        <label htmlFor="" className="block">
-          <label htmlFor="useFullife" className="text-slate-700">
-            Useful Life
-          </label>
           <input
             type="number"
-            id="useFullife"
-            onChange={handleChange}
-            value={formData.usefulLife}
-            name="usefulLife"
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            id="residualvalue"
+            onChange={handleChange}
+            value={formData.residualValue}
+            name="residualValue"
           />
         </label>
+        <div className="flex items-center justify-between">
+          <label htmlFor="" className="block">
+            <label htmlFor="useFullife" className="text-slate-700">
+              Useful Life
+            </label>
+            <input
+              type="number"
+              id="useFullife"
+              onChange={handleChange}
+              value={formData.usefulLife}
+              name="usefulLife"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            />
+          </label>
 
-        <label htmlFor="" className="block">
-          <input
-            type="select"
-            onChange={handleChange}
-            value={formData.time}
-            name="time"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-          <option value="year">years</option>
-          <option value="month">months</option>
-          <option value="week">weeks</option>
-          <option value="day">days</option>
-        </label>
+          <label htmlFor="" className="block mt-[22px]">
+            <select
+              value={formData.time}
+              name="time"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            >
+              <option value="year">years</option>
+              <option value="month">months</option>
+              <option value="week">weeks</option>
+              <option value="day">days</option>
+            </select>
+          </label>
+        </div>
 
         <label htmlFor="" className="block">
           <label htmlFor="receipt" className="text-slate-700">
             Upload purchase receipt
           </label>
-          <input
-            type="file"
-            id="receipt"
-            onChange={handleChange}
-            value={formData.receipt}
-            name="receipt"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          ></input>
+          <DropFile />
         </label>
       </div>
       <h2 className="text-xl font-bold">Assigned To</h2>
@@ -357,67 +337,14 @@ const Forms = () => {
             />
           </label>
           <label htmlFor="" className="block">
-            <label htmlFor="warranty" className="text-slate-700">
-              Upload warranty file{" "}
-            </label>
-            <input
-              type="file"
-              id="warranty"
-              onChange={handleChange}
-              value={formData.uploadWarranty}
-              name="uploadWarranty"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            />
+            <label className="text-slate-700">Upload warranty file </label>
+            <DropFile />
           </label>
         </div>
       </div>
       <h2 className="text-xl font-bold">Parts </h2>
-      <div className="grid grid-cols-1 gap-6">
-        <label htmlFor="" className="block">
-          <input
-            type="file"
-            onChange={handleChange}
-            value={formData.file1}
-            name="file1"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </label>
-      </div>
 
-      <div className="flex items-center justify-center w-full">
-        <label
-          htmlFor="dropzone-file"
-          className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-        >
-          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg
-              aria-hidden="true"
-              className="w-10 h-10 mb-3 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-              ></path>
-            </svg>
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">Click to upload</span> or drag and
-              drop
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              SVG, PNG, JPG or GIF (MAX. 800x400px)
-            </p>
-          </div>
-          <input id="dropzone-file" type="file" className="hidden" />
-        </label>
-      </div>
-
-      <input type="submit"></input>
+      <DropFile />
     </form>
   );
 };
