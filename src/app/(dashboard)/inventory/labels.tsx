@@ -1,4 +1,5 @@
 import Button from "@/components/common/Button";
+import DropFile from "@/components/common/DropFile";
 
 const labels: React.ReactNode = (
   <>
@@ -47,10 +48,7 @@ const labels: React.ReactNode = (
     </div>
 
     <h2 className="text-xl font-bold my-8">Image</h2>
-    <div className="w-full p-[3rem] border-dashed border-slate-500 border rounded-md cursor-pointer">
-      <Button category="secondary">Upload</Button>
-      <span> or drop files</span>
-    </div>
+    <DropFile />
 
     <h2 className="text-xl font-bold my-8">Assigned To</h2>
     <div className="grid grid-cols-1 gap-4">
@@ -131,10 +129,7 @@ const labels: React.ReactNode = (
     </div>
 
     <h2 className="text-xl font-bold my-8">Files</h2>
-    <div className="w-full p-[3rem] border-dashed border-slate-500 border rounded-md cursor-pointer">
-      <Button category="secondary">Upload</Button>
-      <span> or drop files</span>
-    </div>
+    <DropFile />
   </>
 );
 
