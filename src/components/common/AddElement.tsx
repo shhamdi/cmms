@@ -6,19 +6,24 @@ import { X } from "lucide-react";
 import { Plus } from "lucide-react";
 
 const AddElement = ({
-  children,
+  triggerName,
   title,
   description,
   labels,
 }: {
-  children: React.ReactNode;
+  triggerName: string;
   title: string;
   description: string;
   labels: React.ReactNode;
 }) => {
   return (
     <Dialog.Root>
-      <Dialog.Trigger>{children}</Dialog.Trigger>
+      <Dialog.Trigger>
+        <div className="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          <Plus size={18} className="mr-1" />
+          {triggerName}
+        </div>
+      </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-black/50 backdrop-blur-sm data-[state=open]:animate-overlayShow fixed inset-0 z-20" />
         <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-30 top-[50%] left-[50%] h-[30rem] w-[50vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
