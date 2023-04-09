@@ -4,11 +4,12 @@ import Button from "@/components/common/Button";
 import { Plus } from "lucide-react";
 import labels from "./labels";
 import Example from "./Example";
+import ModuleHeader from "@/components/common/ModuleHeader";
 
 const Inventory = () => {
   return (
-    <div className="relative">
-      <header className="flex justify-between items-center w-full h-12">
+    <>
+      <ModuleHeader>
         <div className="font-bold text-xl">Inventory</div>
         <AddElement title="Create Part" description="" labels={labels}>
           <Button category="primary">
@@ -16,13 +17,12 @@ const Inventory = () => {
             Create Part
           </Button>
         </AddElement>
-      </header>
+      </ModuleHeader>
 
-      <div className="absolute left-[-1rem] right-[-1rem] h-[1px] bg-slate-100"></div>
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <Example />
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 };
 

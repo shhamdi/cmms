@@ -1,4 +1,5 @@
 import Button from "@/components/common/Button";
+import Logo from "@/components/common/Logo";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,14 +11,7 @@ export default function Home() {
             href="#"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
-            <Image
-              className="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-              alt="logo"
-              width={40}
-              height={40}
-            />
-            Flowbite
+            <Logo />
           </a>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
