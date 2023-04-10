@@ -29,7 +29,7 @@ const Header = () => {
           </div>
         </nav>
         <div className="flex items-center">
-          <div className="mx-4 p-2 rounded-full hover:bg-blue-100 hover:text-blue-800 cursor-pointer">
+          <div className="mx-4 p-2 rounded-full hover:bg-blue-200 hover:text-blue-800 cursor-pointer">
             <Bell size={18} />
           </div>
           <Account />

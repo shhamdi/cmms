@@ -15,7 +15,7 @@ import {
 
 const SideNavbar = () => {
   return (
-    <div className="fixed left-0 bottom-0 top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-50 text-slate-800 shadow-md overflow-y-auto">
+    <div className="fixed left-0 bottom-0 top-[3.5rem] flex flex-col p-4 border-r border-solid min-w-[18rem] bg-slate-100 text-slate-800 shadow-md overflow-y-auto">
       <NavLink name="Work Orders" route_segment="work-orders">
         <Briefcase size={18} />
       </NavLink>
