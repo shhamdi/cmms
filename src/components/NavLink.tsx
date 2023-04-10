@@ -15,7 +15,7 @@ const NavLink = ({
   const pathname = usePathname();
 
   return (
-    <Link href={`/${route_segment}`} className={`active:scale-95`}>
+    <Link href={`/${route_segment}`} className={`active:scale-95 my-[2px]`}>
       <div
         className={`flex flex-row items-center rounded-[3px] p-2 hover:bg-blue-100 focus:scale-75 relative transition ${
           pathname === "/" + route_segment ? "bg-blue-100" : ""

@@ -25,9 +25,12 @@ const AddElement = ({
         </div>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-black/50 backdrop-blur-sm data-[state=open]:animate-overlayShow fixed inset-0 z-20" />
+        <Dialog.Overlay className="bg-slate-600/[.7] data-[state=open]:animate-overlayShow fixed inset-0 z-20" />
+        <div className="absolute bg-black w-full h-5 top-0"></div>
         <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-30 top-[50%] left-[50%] h-[30rem] w-[50vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
-          <Dialog.Title className="m-0 text-[17px]">{title}</Dialog.Title>
+          <Dialog.Title className="m-0 text-2xl font-bold">
+            {title}
+          </Dialog.Title>
           <Dialog.Description className="text-slate-400 mt-[10px] mb-5 text-[15px] leading-normal">
             {description}
           </Dialog.Description>
