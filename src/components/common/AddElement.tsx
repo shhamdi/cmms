@@ -25,29 +25,32 @@ const AddElement = ({
         </div>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-slate-600/[.7] data-[state=open]:animate-overlayShow fixed inset-0 z-20" />
-        <div className="absolute bg-black w-full h-5 top-0"></div>
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-30 top-[50%] left-[50%] h-[30rem] w-[50vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
-          <Dialog.Title className="m-0 text-2xl font-bold">
-            {title}
+        <Dialog.Overlay className="bg-slate-600/[.6] data-[state=open]:animate-overlayShow fixed inset-0 z-20" />
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-30 top-[50%] left-[50%] h-[80vh] w-[80vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+          <Dialog.Title className="sticky top-0 right-0 m-0 text-2xl font-bold">
+            <div className="flex items-center justify-between bg-white h-20 p-6 shadow-sm">
+              <div>{title}</div>
+              <Dialog.Close asChild>
+                <button
+                  className="inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
+                  aria-label="Close"
+                >
+                  <X />
+                </button>
+              </Dialog.Close>
+            </div>
           </Dialog.Title>
-          <Dialog.Description className="text-slate-400 mt-[10px] mb-5 text-[15px] leading-normal">
-            {description}
-          </Dialog.Description>
-          {labels}
-          <div className="mt-[25px] flex justify-end">
-            <Dialog.Close asChild>
-              <Button category="primary">Save Changes</Button>
-            </Dialog.Close>
+          <div className="p-6">
+            <Dialog.Description className="text-slate-400 mt-[10px] mb-5 text-[15px] leading-normal">
+              {description}
+            </Dialog.Description>
+            {labels}
+            <div className="mt-[25px] flex justify-end">
+              <Dialog.Close asChild>
+                <Button category="primary">Save Changes</Button>
+              </Dialog.Close>
+            </div>
           </div>
-          <Dialog.Close asChild>
-            <button
-              className="absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:shadow-[0_0_0_2px] focus:outline-none"
-              aria-label="Close"
-            >
-              <X />
-            </button>
-          </Dialog.Close>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
