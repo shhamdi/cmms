@@ -1,8 +1,12 @@
+import bcrypt from "bcrypt";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+
+import prisma from "@/lib/prismadb";
 
 export const authOptions: NextAuthOptions = {
-  // Configure one or more authentication providers
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
@@ -12,32 +16,45 @@ export const authOptions: NextAuthOptions = {
       // e.g. domain, username, password, 2FA token, etc.
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: { label: "Password", type: "password" },
+        email: { label: "email", type: "text" },
+        password: { label: "password", type: "password" },
       },
       async authorize(credentials, req) {
-        const { username, password } = credentials as any;
-        const res = await fetch("http://localhost:3000/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error("Invalid Credentials");
+        }
+
+        const user = await prisma.user.findUnique({
+          where: {
+            email: credentials.email,
           },
-          body: JSON.stringify({
-            username,
-            password,
-          }),
         });
 
-        const user = await res.json();
+        if (!user || !user.lastName) {
+          throw new Error("Invalid Credentials");
+        }
 
-        console.log({ user });
+        const isCorrectPassword = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
 
-        if (res.ok && user) {
-          return user;
-        } else return null;
+        if (!isCorrectPassword) {
+          throw new Error("Wrong Password");
+        }
+
+        return user;
       },
     }),
   ],
+  debug: process.env.NODE_ENV === "development",
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
+    secret: process.env.NEXTAUTH_JWT_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
