@@ -1,5 +1,6 @@
 import SideNavbar from "@/components/SideNavbar";
 import Header from "@/components/Header";
+import Resizable from "@/components/Resizable";
 
 export default function DashboardLayout({
   children,
@@ -9,9 +10,9 @@ export default function DashboardLayout({
   return (
     <>
       <Header />
-      <div className="flex">
+      <div className="fixed inset-0 flex mt-14 z-50">
         <SideNavbar />
-        <div className="w-full mt-14 ml-[19rem] pr-[1rem] overflow-y-hidden">
+        <div className="w-full h-full px-[1rem] overflow-y-hidden">
           {children}
         </div>
       </div>
