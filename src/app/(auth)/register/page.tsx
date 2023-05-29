@@ -80,7 +80,7 @@ export default function Register() {
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Your email
+                    Your Email
                   </label>
                   <input
                     type="email"
