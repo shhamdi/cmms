@@ -91,8 +91,7 @@ const SideNavbar = () => {
           <button
             className={clsx(
               "absolute left-[-0.85rem] top-8 z-30 p-1 cursor-pointer bg-slate-200 border-2 border-slate-300 rounded-full",
-              !hidden && "invisible",
-              "group-hover:visible hover:text-white hover:bg-blue-500 hover:border-white",
+              "hover:text-white hover:bg-blue-500 hover:border-white",
               hidden && "rotate-180",
               "transition-all"
             )}

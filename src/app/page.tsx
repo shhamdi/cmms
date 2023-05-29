@@ -1,6 +1,7 @@
 import Button from "@/components/common/Button";
 import Logo from "@/components/common/Logo";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -80,12 +81,12 @@ export default function Home() {
                 </Button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
-                  <a
-                    href="#"
+                  <Link
+                    href="/register"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Sign up
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

@@ -26,7 +26,7 @@ const AddElement = ({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-slate-600/[.6] data-[state=open]:animate-overlayShow fixed inset-0 z-[200]" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-[400] top-[50%] left-[50%] h-[80vh] w-[80vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed z-[400] top-[50%] left-[50%] w-full h-full md:h-[80vh] md:w-[80vw] overflow-y-auto translate-x-[-50%] translate-y-[-50%] bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
           <Dialog.Title className="sticky top-0 right-0 m-0 text-2xl font-bold">
             <div className="flex items-center justify-between bg-slate-100 h-20 p-6 shadow-md">
               <div>{title}</div>
