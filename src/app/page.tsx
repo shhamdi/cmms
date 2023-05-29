@@ -69,12 +69,12 @@ export default function Home() {
                       </label>
                     </div>
                   </div>
-                  <a
-                    href="#"
+                  <Link
+                    href="/resetpassword"
                     className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
                 <Button type="submit" width="full">
                   Sign in
