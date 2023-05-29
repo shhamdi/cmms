@@ -11,9 +11,9 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [pass_word, setPassWord] = useState("");
   return (
-    <div className="w-full h-full p-10 bg-gray-50">
+    <div className=" bg-gray-50">
       <section>
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="  bg-cover	w-screen bg-[url('https://i.imgur.com/SUiNozy.jpeg')] flex flex-col items-center justify-center  mx-auto md:h-screen lg:py-0">
           <a
             href="#"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
@@ -110,8 +110,27 @@ export default function Register() {
                   />
                 </div>
 
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="agree"
+                      aria-describedby="agree"
+                      type="checkbox"
+                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label
+                      htmlFor="agree"
+                      className="text-gray-500 dark:text-gray-300"
+                    >
+                      I agree to the Terms of Service
+                    </label>
+                  </div>
+                </div>
+
                 <Button type="submit" width="full">
-                  Log In
+                  Sign Up
                 </Button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Have an account already?
