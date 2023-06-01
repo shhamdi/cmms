@@ -20,14 +20,14 @@ const NavLink = ({
       className={`active:scale-95 whitespace-nowrap`}
     >
       <div
-        className={`relative flex items-center w-full rounded-[3px] p-2 hover:bg-blue-200 hover:text-blue-800 focus:scale-75 transition-all ${
-          pathname === "/" + route_segment ? "bg-blue-200 text-blue-800" : ""
+        className={`relative flex items-center w-full rounded-[3px] p-2 hover:bg-slate-600 focus:scale-75 transition-all ${
+          pathname === "/" + route_segment ? "bg-slate-600" : ""
         }`}
       >
         <div
           className={` ${
             pathname === "/" + route_segment
-              ? "w-1.5 absolute top-[12px] left-0 bottom-[12px] bg-blue-700 rounded-full"
+              ? "w-1.5 absolute top-[12px] left-0 bottom-[12px] bg-white rounded-full"
               : ""
           }`}
         ></div>

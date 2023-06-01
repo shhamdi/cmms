@@ -14,7 +14,7 @@ const AddElement = ({
   triggerName: string;
   title: string;
   description: string;
-  labels: React.ReactNode;
+  labels?: React.ReactNode;
 }) => {
   return (
     <Dialog.Root>
