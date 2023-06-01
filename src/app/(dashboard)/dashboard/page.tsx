@@ -1,13 +1,11 @@
-import AddElement from "@/components/common/AddElement";
 import ModuleHeader from "@/components/common/module_ui/ModuleHeader";
 import ModuleTitle from "@/components/common/module_ui/ModuleTitle";
 
-export default function Meters() {
+export default function Dashboard() {
   return (
     <>
       <ModuleHeader>
-        <ModuleTitle title="Meters" />
-        <AddElement triggerName="Add Meter" title="Add Meter" description="" />
+        <ModuleTitle title="Default Dashboard" />
       </ModuleHeader>
     </>
   );

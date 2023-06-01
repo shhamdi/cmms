@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,9 +25,15 @@ const HeaderDropDown = ({
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
         <DropdownMenuContent className="w-48 mr-7">
-          {list.map((item, index) => (
-            <DropdownMenuItem key={index}>{item}</DropdownMenuItem>
-          ))}
+          {list.map((item, index) => {
+            let href: string = "#";
+            if (item === "Default dashboard") href = "/dashboard";
+            return (
+              <DropdownMenuItem key={index}>
+                <Link href={href}>{item}</Link>
+              </DropdownMenuItem>
+            );
+          })}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
