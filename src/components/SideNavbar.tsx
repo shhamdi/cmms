@@ -27,15 +27,7 @@ const SideNavbar = () => {
     <>
       <div className={clsx(hidden && "hidden")}>
         <div className={`relative h-full`} style={{ minWidth: width + "px" }}>
-<<<<<<< HEAD
-          <div className="absolute inset-0 flex flex-col p-4 border-r border-solid bg-slate-100 text-slate-800 shadow-md overflow-y-auto overflow-x-hidden">
-            <NavLink name="Home" route_segment="home">
-              <Home size={18} />
-            </NavLink>
-
-=======
           <div className="absolute inset-0 flex flex-col p-4 border-r border-solid bg-slate-800 text-white shadow-md overflow-y-auto overflow-x-hidden">
->>>>>>> b77668dc9fb0c751d3728df862d127aefe298f9f
             <NavLink name="Work Orders" route_segment="work-orders">
               <Briefcase size={18} />
             </NavLink>

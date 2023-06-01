@@ -1,8 +1,12 @@
 "use client";
-
 import { signIn } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
+
+import Button from "@/components/common/Button";
+import Logo from "@/components/common/Logo";
+import Image from "next/image";
+import Link from "next/link";
 
 export const LoginForm = () => {
   const router = useRouter();
@@ -15,7 +19,7 @@ export const LoginForm = () => {
 
   const searchParams = useSearchParams();
   //   const callbackUrl = searchParams.get("callbackUrl") || "/inventory";
-  const callbackUrl = "/inventory";
+  const callbackUrl = "/home";
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,48 +53,81 @@ export const LoginForm = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const input_style =
-    "form-control block w-full px-4 py-5 text-sm font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none";
-
   return (
-    <form onSubmit={onSubmit}>
-      {error && (
-        <p className="text-center bg-red-300 py-4 mb-6 rounded">{error}</p>
-      )}
-      <div className="mb-6">
-        <input
-          required
-          type="email"
-          name="email"
-          value={formValues.email}
-          onChange={handleChange}
-          placeholder="Email address"
-          className={`${input_style}`}
-        />
-      </div>
-      <div className="mb-6">
-        <input
-          required
-          type="password"
-          name="password"
-          value={formValues.password}
-          onChange={handleChange}
-          placeholder="Password"
-          className={`${input_style}`}
-        />
-      </div>
-      <button
-        type="submit"
-        style={{ backgroundColor: `${loading ? "#ccc" : "#3446eb"}` }}
-        className="inline-block px-7 py-4 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
-        disabled={loading}
-      >
-        {loading ? "loading..." : "Sign In"}
-      </button>
+    <div>
+      <section className="bg-gray-50 dark:bg-gray-900 ">
+        <div className=" w-screen bg-cover	 bg-[url('https://i.imgur.com/SUiNozy.jpeg')] flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <a
+            href="#"
+            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            <Logo />
+          </a>
+          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                Sign in to your account
+              </h1>
+              <form className="space-y-4 md:space-y-6" onSubmit={onSubmit}>
+                {error && (
+                  <p className="text-center bg-red-300 py-4 mb-6 rounded">
+                    {error}
+                  </p>
+                )}
 
-      <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-        <p className="text-center font-semibold mx-4 mb-0">OR</p>
-      </div>
-    </form>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your Email
+                  </label>
+                  <input
+                    onChange={handleChange}
+                    required
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="name@company.com"
+                    value={formValues.email}
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    onChange={handleChange}
+                    value={formValues.password}
+                  />
+                </div>
+
+                <Button type="submit" width="full">
+                  Sign in
+                </Button>
+                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                  Don’t have an account yet?{" "}
+                  <Link
+                    href="/register"
+                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  >
+                    Sign up
+                  </Link>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
