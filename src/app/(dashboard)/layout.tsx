@@ -12,7 +12,7 @@ export default function DashboardLayout({
       <Header />
       <div className="fixed inset-0 flex mt-14 z-50">
         <SideNavbar />
-        <div className="w-full h-full px-[1rem] overflow-y-hidden">
+        <div className="w-full h-full px-[1rem] overflow-y-auto">
           {children}
         </div>
       </div>
